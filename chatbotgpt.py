@@ -61,3 +61,36 @@ selected_model = st.selectbox("Choisissez un modèle GPT :", model_options)
 # Utiliser le modèle sélectionné
 st.write(f"Vous avez sélectionné le modèle : {selected_model}")
 
+import streamlit as st
+import openai
+
+# Titre de l'application
+st.title("ChatGPT-like clone")
+
+# Liste des modèles GPT
+model_options = [
+    "gpt-3.5-turbo",
+    "gpt-3.5-turbo-instruct",
+    "gpt-3.5-turbo-1106",
+    "gpt-3.5-turbo-0125"
+]
+
+# Selectbox pour choisir le modèle GPT
+selected_model = st.selectbox(
+    "Choisissez un modèle GPT :", 
+    model_options, 
+    key="model_selectbox"  # Clé unique pour éviter les conflits
+)
+
+# Slider pour sélectionner max_tokens
+max_tokens = st.slider(
+    "Choisissez le nombre maximum de jetons :",
+    min_value=0,
+    max_value=500,
+    value=100,  # Valeur par défaut
+    step=1,
+    key="max_tokens_slider"  # Clé unique pour éviter les conflits
+)
+
+st.write(f"Modèle sélectionné : {selected_model}")
+st.write(f"Nombre maximum de jetons sélectionné : {max_tokens}")  
