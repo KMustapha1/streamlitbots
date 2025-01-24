@@ -39,4 +39,4 @@ if prompt := st.chat_input("What is up?"):
             max_tokens = 200,
         )
         response = st.write_stream(stream)
-    st.session_state.messages.append({"role": "assistant", "content": response})  
+    st.session_state.messages.append({"role": "assistant", "content": response})    
